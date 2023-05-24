@@ -42,8 +42,8 @@ typedef struct h_s
 	char *buf;
 }h_t;
 
-
-size_t getline(char **lineptr, size_t *n, FILE *stream);
+extern h_t h;
+size_ getline(char **lineptr, size_t *n, FILE *stream);
 int exe(char *buf, unsigned int count, stack_t **stack);
 void addnode(stack_t **head, int n);
 void push(stack_t **head, unsigned int count);
