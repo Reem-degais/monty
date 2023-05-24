@@ -6,10 +6,12 @@ int exe(char *buf, unsigned int count, stack_t **stack)
 
 
 	char *op;
-	int i;
+	int i = 0;
+
 
 
 	op = strtok(buf, " ");
+	h.arg = strtok(NULL, " ");
         while (_opcode[i].opcode && op)
 	{
 		if (strcmp(op, _opcode[i].opcode) == 0)
@@ -17,16 +19,15 @@ int exe(char *buf, unsigned int count, stack_t **stack)
 			_opcode[i].f(stack, count);
 			return (0);
 		}
+		else
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
+			exit(EXIT_FAILURE);
+		}
 		i++;
-	}
+		
 
-	if (op && _opcode[i].opcode == NULL)
-	{ 
-		fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
-		exit(EXIT_FAILURE); 
-	}
+
+        }
 	return (1);
-
-
-
 }
