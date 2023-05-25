@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stddef.h>
 #include <ctype.h>
+#include <stdint.h>
+size_t getline(char **lineptr, size_t *n, FILE *stream);
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,11 +42,12 @@ typedef struct h_s
 {
 	char *arg;
 	char *buf;
+	FILE *file;
 }h_t;
-
 extern h_t h;
-size_ getline(char **lineptr, size_t *n, FILE *stream);
-int exe(char *buf, unsigned int count, stack_t **stack);
+int exe(char *buf, unsigned int count, stack_t **stack, FILE *file);
 void addnode(stack_t **head, int n);
+void pall(stack_t **head, unsigned int counter);
 void push(stack_t **head, unsigned int count);
+void free_stack(stack_t *head);
 #endif

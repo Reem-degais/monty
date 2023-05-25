@@ -1,17 +1,15 @@
 #include "monty.h"
 
-int exe(char *buf, unsigned int count, stack_t **stack)
+int exe(char *buf, unsigned int count, stack_t **stack, FILE *file)
 {
-	instruction_t _opcode[] = {{"push", push}};
+	instruction_t _opcode[] = {{"push", push}, {"pall", pall}};
 
 
 	char *op;
-	int i = 0;
-
-
-
+	unsigned int i = 0;
+	
 	op = strtok(buf, " ");
-	h.arg = strtok(NULL, " ");
+        h.arg = strtok(NULL, " ");
         while (_opcode[i].opcode && op)
 	{
 		if (strcmp(op, _opcode[i].opcode) == 0)
@@ -19,15 +17,15 @@ int exe(char *buf, unsigned int count, stack_t **stack)
 			_opcode[i].f(stack, count);
 			return (0);
 		}
-		else
+		i++;
+	}
+		if (op && _opcode[i].opcode == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
+			fclose(file);
+			free(buf);
+			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
-		i++;
-		
-
-
-        }
 	return (1);
 }
