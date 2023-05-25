@@ -20,7 +20,6 @@ void add(stack_t **head, unsigned int count)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	tmp = *head;
 	sum = tmp->n + tmp->next->n;
 	tmp->next->n = sum;
 	*head = tmp->next;
