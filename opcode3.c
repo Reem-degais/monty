@@ -109,3 +109,31 @@ void rotl(stack_t **head, unsigned int count)
 
 
 }
+
+/**
+ * rotr - rotates the stack to the bottom.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
+ */
+void rotr(stack_t **head, unsigned int count)
+{
+        stack_t *tmp = *head;
+        (void) count;
+
+        if (*head == NULL || (*head)->next == NULL)
+        {
+                return;
+        }
+        while (tmp->next != NULL)
+        {
+                tmp = tmp->next;
+        }
+        tmp->next = *head;
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	(*head)->prev = tmp;
+	(*head) = tmp;
+
+
+}
