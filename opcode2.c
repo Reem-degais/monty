@@ -38,3 +38,29 @@ void nop(stack_t **head, unsigned int count)
 	(void) count;
 
 }
+
+/**
+ * sub - adds the top two elements of the stack.
+ * @head: stack head.
+ * @count: line_number.
+ *  Return: no return.
+ */
+void sub(stack_t **head, unsigned int count)
+{
+        stack_t *tmp;
+        int sub;
+
+        tmp = *head;
+        if (!tmp || !tmp->next)
+        {
+                fprintf(stderr, "L%d: can't add, stack too short\n", count);
+                fclose(h.file);
+                free(h.buf);
+                free_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        sub = tmp->next->n - tmp->n;
+        tmp->next->n = sub;
+        *head = tmp->next;
+        free(tmp);
+}
