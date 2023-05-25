@@ -108,3 +108,29 @@ void	pop(stack_t **head, unsigned int counter)
 		new_head->prev = NULL;
 	*head = new_head;
 }
+
+/**
+ * swap - prints list elements
+ * @stack: holds the pointer to the first element
+ * @number: number to be stored at the node
+ * Return: the new stack for the node
+ */
+void	swap(stack_t **head, unsigned int counter)
+{
+	stack_t	*tmp;
+	int sp;
+
+	tmp = *head;
+	if (!tmp || !tmp->next)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	sp = tmp->n;
+	tmp->n = tmp->next->n;
+	tmp->next->n = sp;
+}
+
