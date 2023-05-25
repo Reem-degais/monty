@@ -101,3 +101,40 @@ void _div(stack_t **head, unsigned int count)
 		free(tmp);
 	}
 }
+
+/**
+ * mod - computes rest of div second top element by top element of the stack.
+ * @head: stack head.
+ * @count: line_number.
+ *  Return: no return.
+ */
+void mod(stack_t **head, unsigned int count)
+{
+        stack_t *tmp;
+        int mod;
+
+        tmp = *head;
+        if (!tmp || !tmp->next)
+        {
+                fprintf(stderr, "L%d: can't mod, stack too short\n", count);
+                fclose(h.file);
+                free(h.buf);
+                free_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+	if (tmp->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", count);
+                fclose(h.file);
+                free(h.buf);
+                free_stack(*head);
+                exit(EXIT_FAILURE);
+	}
+	else
+	{
+		mod = tmp->next->n % tmp->n;
+		tmp->next->n = mod;
+		*head = tmp->next;
+		free(tmp);
+	}
+}
