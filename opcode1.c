@@ -58,3 +58,27 @@ void f_pall(stack_t **head, unsigned int counter)
 		h = h->next;
 	}
 }
+
+
+/**
+ * pint - check the code
+ * @stack: head of double linked list
+ * @number: to follow the shape
+ * Return: number of nodes
+ */
+void	pint(stack_t **head, unsigned int counter)
+{
+	stack_t	*tmp = *head;
+
+	(void)counter;
+	if (tmp)
+		fprintf(stdout, "%d\n", tmp->n);
+	else
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+}
