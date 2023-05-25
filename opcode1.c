@@ -5,32 +5,32 @@
  * @counter: line_number
  * Return: no return
 */
-void f_push(stack_t **head, unsigned int counter)
+void push(stack_t **head, unsigned int count)
 {
-	int n, j = 0, flag = 0;
+	int n, i = 0, flag = 0;
 
-	if (bus.arg)
+	if (h.arg)
 	{
-		if (bus.arg[0] == '-')
-			j++;
-		for (; bus.arg[j] != '\0'; j++)
+		if (h.arg[0] == '-')
+			i++;
+		for (; h.arg[i] != '\0'; i++)
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			if (h.arg[i] > 57 || h.arg[i] < 48)
 				flag = 1; }
 		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-			fclose(bus.file);
-			free(bus.content);
+		{ fprintf(stderr, "L%d: usage: push integer\n", count);
+			fclose(h.file);
+			free(h.buf);
 			free_stack(*head);
 			exit(EXIT_FAILURE); }}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+	{ fprintf(stderr, "L%d: usage: push integer\n", count);
+		fclose(h.file);
+		free(h.buf);
 		free_stack(*head);
 		exit(EXIT_FAILURE); }
-	n = atoi(bus.arg);
-	if (bus.lifi == 0)
+	n = atoi(h.arg);
+	if (h.lifi == 0)
 		addnode(head, n);
 	/**else
 		addqueue(head, n);*/
@@ -39,15 +39,15 @@ void f_push(stack_t **head, unsigned int counter)
 
 
 /**
- * f_pall - prints the stack
+ * pall - prints the stack
  * @head: stack head
  * @counter: no used
  * Return: no return
 */
-void f_pall(stack_t **head, unsigned int counter)
+void pall(stack_t **head, unsigned int count)
 {
 	stack_t *h;
-	(void)counter;
+	(void)count;
 
 	h = *head;
 	if (h == NULL)
@@ -66,7 +66,7 @@ void f_pall(stack_t **head, unsigned int counter)
  * @number: to follow the shape
  * Return: number of nodes
  */
-void	pint(stack_t **head, unsigned int counter)
+void	pint(stack_t **head, unsigned int count)
 {
 	stack_t	*tmp = *head;
 
@@ -74,9 +74,9 @@ void	pint(stack_t **head, unsigned int counter)
 		fprintf(stdout, "%d\n", tmp->n);
 	else 
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", count);
+		fclose(h.file);
+		free(h.buf);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -88,7 +88,7 @@ void	pint(stack_t **head, unsigned int counter)
  * @number: number to be stored at the node
  * Return: the new stack for the node
  */
-void	pop(stack_t **head, unsigned int counter)
+void	pop(stack_t **head, unsigned int count)
 {
 	stack_t	*tmp;
 	stack_t	*new_head;
@@ -96,9 +96,9 @@ void	pop(stack_t **head, unsigned int counter)
 	tmp = *head;
 	if (!tmp)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", count);
+		fclose(h.file);
+		free(h.buf);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -115,7 +115,7 @@ void	pop(stack_t **head, unsigned int counter)
  * @number: number to be stored at the node
  * Return: the new stack for the node
  */
-void	swap(stack_t **head, unsigned int counter)
+void	swap(stack_t **head, unsigned int count)
 {
 	stack_t	*tmp;
 	int sp;
@@ -123,9 +123,9 @@ void	swap(stack_t **head, unsigned int counter)
 	tmp = *head;
 	if (!tmp || !tmp->next)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", count);
+		fclose(h.file);
+		free(h.buf);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
