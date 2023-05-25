@@ -73,7 +73,7 @@ void	pint(stack_t **head, unsigned int counter)
 	(void)counter;
 	if (tmp)
 		fprintf(stdout, "%d\n", tmp->n);
-	else
+	else if (tmp == NULL) 
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
 		fclose(bus.file);
