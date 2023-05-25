@@ -80,3 +80,27 @@ void pstr(stack_t **head, unsigned int count)
 	}
 	fprintf(stdout, "\n");
 }
+
+/**
+ * rotl - rotates the stack to the top.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
+ */
+void rotl(stack_t **head, unsigned int count)
+{
+        stack_t *tmp = *head, *a;
+        (void) count;
+
+        a = (*head)->next;
+	while (tmp->next != NULL)
+        {
+		tmp = tmp->next;
+        }
+	tmp->next = *head;
+	(*head)->next = NULL;
+	(*head)->prev = tmp;
+	*head = a;
+
+
+}
