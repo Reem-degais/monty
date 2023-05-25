@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		count++;
 		if (read_line > 0)
 		{
-			execute(buf, &stack, count, file);
+			exe(buf, &stack, count, file);
 		}
 		free(buf);
 	}

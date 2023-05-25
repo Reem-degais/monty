@@ -30,10 +30,10 @@ void push(stack_t **head, unsigned int count)
 		free_stack(*head);
 		exit(EXIT_FAILURE); }
 	n = atoi(h.arg);
-	if (h.lifi == 0)
+	if (h.flag == 0)
 		addnode(head, n);
-	/**else
-		addqueue(head, n);*/
+	else
+		addqueue(head, n);
 }
 
 

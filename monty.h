@@ -35,7 +35,7 @@ typedef struct h_s
 	char *arg;
 	FILE *file;
 	char *buf;
-	int lifi;
+	int flag;
 }  h_t;
 extern h_t h;
 /**
@@ -57,7 +57,7 @@ char  *clean_line(char *content);
 void push(stack_t **head, unsigned int count);
 void pall(stack_t **head, unsigned int count);
 void pint(stack_t **head, unsigned int count);
-int execute(char *buf, stack_t **head, unsigned int count, FILE *file);
+int exe(char *buf, stack_t **head, unsigned int count, FILE *file);
 void free_stack(stack_t *head);
 void pop(stack_t **head, unsigned int count);
 void swap(stack_t **head, unsigned int count);
@@ -74,7 +74,7 @@ void rotr(stack_t **head, unsigned int count);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
 void queue(stack_t **head, unsigned int count);
-void stack(stack_t **head, unsigned int count);
+void _stack(stack_t **head, unsigned int count);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 #endif
 
