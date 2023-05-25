@@ -8,9 +8,8 @@ int exe(char *buf, unsigned int count, stack_t **stack, FILE *file)
 	char *op;
 	unsigned int i = 0;
 	
-	op = strtok(buf, "\n\t");
-        printf("%s\n", op);
-	h.arg = strtok(NULL, "\n\t");
+	op = strtok(buf, " \n\t");
+	h.arg = strtok(NULL, " \n\t");
         while (_opcode[i].opcode && op)
 	{
 		if (strcmp(op, _opcode[i].opcode) == 0)
