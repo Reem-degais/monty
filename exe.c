@@ -11,7 +11,8 @@ int execute(char *buf, stack_t **stack, unsigned int count, FILE *file)
 {
 	instruction_t opins[] = {{"push", push}, {"pall", pall}, 
 	      {"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add},
-	      {"nop", nop}, {"sub", sub}, {"div", _div}, {"mod", mod}};
+	      {"nop", nop}, {"sub", sub}, {"div", _div}, {"mod", mod},
+	      {"mul", mul}};
 	unsigned int i = 0;
 	char *op;
 

@@ -53,7 +53,7 @@ void sub(stack_t **head, unsigned int count)
         tmp = *head;
         if (!tmp || !tmp->next)
         {
-                fprintf(stderr, "L%d: can't add, stack too short\n", count);
+                fprintf(stderr, "L%d: can't sub, stack too short\n", count);
                 fclose(h.file);
                 free(h.buf);
                 free_stack(*head);
