@@ -70,10 +70,9 @@ void	pint(stack_t **head, unsigned int counter)
 {
 	stack_t	*tmp = *head;
 
-	(void)counter;
 	if (tmp)
 		fprintf(stdout, "%d\n", tmp->n);
-	else if (tmp == NULL) 
+	else 
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
 		fclose(bus.file);
@@ -81,4 +80,31 @@ void	pint(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
+}
+
+/**
+ * pop - prints list elements
+ * @stack: holds the pointer to the first element
+ * @number: number to be stored at the node
+ * Return: the new stack for the node
+ */
+void	pop(stack_t **head, unsigned int counter)
+{
+	stack_t	*tmp;
+	stack_t	*new_head;
+
+	tmp = *head;
+	if (!tmp)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	new_head = tmp->next;
+	free(tmp);
+	if (new_head)
+		new_head->prev = NULL;
+	*head = new_head;
 }
