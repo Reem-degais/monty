@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * f_push - add node to the stack
- * @head: stack head
- * @counter: line_number
- * Return: no return
+ * push - pushes an element to the stack.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
 */
 void push(stack_t **head, unsigned int count)
 {
@@ -39,10 +39,10 @@ void push(stack_t **head, unsigned int count)
 
 
 /**
- * pall - prints the stack
- * @head: stack head
- * @counter: no used
- * Return: no return
+ * pall - prints all the values on the stack.
+ * @head: stack head.
+ * @count: no used.
+ * Return: no return.
 */
 void pall(stack_t **head, unsigned int count)
 {
@@ -61,12 +61,12 @@ void pall(stack_t **head, unsigned int count)
 
 
 /**
- * pint - check the code
- * @stack: head of double linked list
- * @number: to follow the shape
- * Return: number of nodes
+ * pint - prints the value at the top of the stack.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
  */
-void	pint(stack_t **head, unsigned int count)
+void pint(stack_t **head, unsigned int count)
 {
 	stack_t	*tmp = *head;
 
@@ -83,10 +83,10 @@ void	pint(stack_t **head, unsigned int count)
 }
 
 /**
- * pop - prints list elements
- * @stack: holds the pointer to the first element
- * @number: number to be stored at the node
- * Return: the new stack for the node
+ * pop - removes the top element of the stack.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
  */
 void	pop(stack_t **head, unsigned int count)
 {
@@ -110,10 +110,10 @@ void	pop(stack_t **head, unsigned int count)
 }
 
 /**
- * swap - prints list elements
- * @stack: holds the pointer to the first element
- * @number: number to be stored at the node
- * Return: the new stack for the node
+ * swap - swaps the top two elements of the stack.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
  */
 void	swap(stack_t **head, unsigned int count)
 {
