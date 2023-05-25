@@ -1,55 +1,50 @@
 #include "monty.h"
-
 /**
- * push - add node to the stack
+ * f_push - add node to the stack
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void push(stack_t **head, unsigned int count)
+void f_push(stack_t **head, unsigned int counter)
 {
-	int n, i = 0, flag = 0;
+	int n, j = 0, flag = 0;
 
-	if(h.arg)
+	if (bus.arg)
 	{
-		if (h.arg[0] == '-')
-			i++;
-		for (; h.arg[i] != '\0'; i++)
+		if (bus.arg[0] == '-')
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (h.arg[i] > 57 || h.arg[i] < 48)
-				flag = 1; 
-		}
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+				flag = 1; }
 		if (flag == 1)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", count);
-			fclose(h.file);
-			free(h.buf);
-			/*free_stack(*head);*/
-			exit(EXIT_FAILURE); 
-		}
-	}
+		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE); }}
 	else
-	{ 
-		fprintf(stderr, "L%d: usage: push integer\n", count);
-		fclose(h.file);
-		free(h.buf);
-		/*free_stack(*head);*/
-		exit(EXIT_FAILURE); 
-	}
-	n = atoi(h.arg);
-	/*if (bus.lifi == 0)*/
-	addnode(head, n);
+	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE); }
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		addnode(head, n);
+	/**else
+		addqueue(head, n);*/
 }
 
 
 
 /**
- * pall - prints the stack
+ * f_pall - prints the stack
  * @head: stack head
  * @counter: no used
  * Return: no return
 */
-void pall(stack_t **head, unsigned int counter)
+void f_pall(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
 	(void)counter;
