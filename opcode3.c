@@ -59,3 +59,24 @@ void pchar(stack_t **head, unsigned int count)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * pstr - prints the string starting at the top of the stack.
+ * @head: stack head.
+ * @count: line_number.
+ * Return: no return.
+ */
+void pstr(stack_t **head, unsigned int count)
+{
+	stack_t	*tmp = *head;
+	(void) count;
+
+	while (tmp)
+	{
+		if (tmp->next == NULL || tmp->n > 127 || tmp->n <= 0)
+			break;
+		fprintf(stdout, "%c", tmp->n);
+		tmp = tmp->next;
+	}
+	fprintf(stdout, "\n");
+}
