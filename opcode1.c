@@ -132,5 +132,6 @@ void	swap(stack_t **head, unsigned int count)
 	sp = tmp->n;
 	tmp->n = tmp->next->n;
 	tmp->next->n = sp;
+	free(tmp);
 }
 
