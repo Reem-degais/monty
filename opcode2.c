@@ -24,3 +24,16 @@ void add(stack_t **head, unsigned int count)
 	tmp->next->n = sum;
 	*head = tmp->next;
 }
+
+/**
+ * nop -  doesn’t do anything..
+ * @head: stack head.
+ * @count: line_number.
+ *  Return: no return.
+ */
+void nop(stack_t **head, unsigned int count)
+{
+	(void) head;
+	(void) count;
+
+}
