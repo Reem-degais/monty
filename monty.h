@@ -27,7 +27,7 @@ typedef struct stack_s
  * @arg: value
  * @file: pointer to monty file
  * @buf: line content
- * @lifi: flag change stack <-> queue
+ * @flag: flag change stack <-> queue
  * Description: carries values through the program
  */
 typedef struct h_s
@@ -36,7 +36,7 @@ typedef struct h_s
 	FILE *file;
 	char *buf;
 	int flag;
-}  h_t;
+} h_t;
 extern h_t h;
 /**
  * struct instruction_s - opcode and its function

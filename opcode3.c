@@ -8,22 +8,22 @@
  */
 void mul(stack_t **head, unsigned int count)
 {
-        stack_t *tmp;
-        int mul;
+	stack_t *tmp;
+	int mul;
 
-        tmp = *head;
-        if (!tmp || !tmp->next)
-        {
-                fprintf(stderr, "L%d: can't mul, stack too short\n", count);
-                fclose(h.file);
-                free(h.buf);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
-        }
-        mul = tmp->next->n * tmp->n;
-        tmp->next->n = mul;
-        *head = tmp->next;
-        free(tmp);
+	tmp = *head;
+	if (!tmp || !tmp->next)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", count);
+		fclose(h.file);
+		free(h.buf);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	mul = tmp->next->n * tmp->n;
+	tmp->next->n = mul;
+	*head = tmp->next;
+	free(tmp);
 }
 
 /**
@@ -36,8 +36,6 @@ void pchar(stack_t **head, unsigned int count)
 {
 	stack_t	*tmp = *head;
 
-
-	
 	if (tmp)
 	{
 		if (tmp->n > 127 || tmp->n < 0)
@@ -89,19 +87,19 @@ void pstr(stack_t **head, unsigned int count)
  */
 void rotl(stack_t **head, unsigned int count)
 {
-        stack_t *tmp = *head, *a;
-        (void) count;
+	stack_t *tmp = *head, *a;
+	(void) count;
 
-        a = (*head)->next;
+	a = (*head)->next;
 	a->prev = NULL;
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		return;
 	}
 	while (tmp->next != NULL)
-        {
+	{
 		tmp = tmp->next;
-        }
+	}
 	tmp->next = *head;
 	(*head)->next = NULL;
 	(*head)->prev = tmp;
@@ -118,18 +116,18 @@ void rotl(stack_t **head, unsigned int count)
  */
 void rotr(stack_t **head, unsigned int count)
 {
-        stack_t *tmp = *head;
-        (void) count;
+	stack_t *tmp = *head;
+	(void) count;
 
-        if (*head == NULL || (*head)->next == NULL)
-        {
-                return;
-        }
-        while (tmp->next != NULL)
-        {
-                tmp = tmp->next;
-        }
-        tmp->next = *head;
+	if (*head == NULL || (*head)->next == NULL)
+	{
+		return;
+	}
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = *head;
 	tmp->prev->next = NULL;
 	tmp->prev = NULL;
 	(*head)->prev = tmp;

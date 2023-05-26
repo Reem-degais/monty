@@ -47,22 +47,22 @@ void nop(stack_t **head, unsigned int count)
  */
 void sub(stack_t **head, unsigned int count)
 {
-        stack_t *tmp;
-        int sub;
+	stack_t *tmp;
+	int sub;
 
-        tmp = *head;
-        if (!tmp || !tmp->next)
-        {
-                fprintf(stderr, "L%d: can't sub, stack too short\n", count);
-                fclose(h.file);
-                free(h.buf);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
-        }
-        sub = tmp->next->n - tmp->n;
-        tmp->next->n = sub;
-        *head = tmp->next;
-        free(tmp);
+	tmp = *head;
+	if (!tmp || !tmp->next)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", count);
+		fclose(h.file);
+		free(h.buf);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	sub = tmp->next->n - tmp->n;
+	tmp->next->n = sub;
+	*head = tmp->next;
+	free(tmp);
 }
 
 /**
@@ -73,25 +73,25 @@ void sub(stack_t **head, unsigned int count)
  */
 void _div(stack_t **head, unsigned int count)
 {
-        stack_t *tmp;
-        int div;
+	stack_t *tmp;
+	int div;
 
-        tmp = *head;
-        if (!tmp || !tmp->next)
-        {
-                fprintf(stderr, "L%d: can't div, stack too short\n", count);
-                fclose(h.file);
-                free(h.buf);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
-        }
+	tmp = *head;
+	if (!tmp || !tmp->next)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", count);
+		fclose(h.file);
+		free(h.buf);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
 	if (tmp->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", count);
-                fclose(h.file);
-                free(h.buf);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
+		fclose(h.file);
+		free(h.buf);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
@@ -110,25 +110,25 @@ void _div(stack_t **head, unsigned int count)
  */
 void mod(stack_t **head, unsigned int count)
 {
-        stack_t *tmp;
-        int mod;
+	stack_t *tmp;
+	int mod;
 
-        tmp = *head;
-        if (!tmp || !tmp->next)
-        {
-                fprintf(stderr, "L%d: can't mod, stack too short\n", count);
-                fclose(h.file);
-                free(h.buf);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
-        }
+	tmp = *head;
+	if (!tmp || !tmp->next)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", count);
+		fclose(h.file);
+		free(h.buf);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
 	if (tmp->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", count);
-                fclose(h.file);
-                free(h.buf);
-                free_stack(*head);
-                exit(EXIT_FAILURE);
+		fclose(h.file);
+		free(h.buf);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
 	}
 	else
 	{

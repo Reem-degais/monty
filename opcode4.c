@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * stack - prints LIFO.
+ * _stack - prints LIFO.
  * @head: stack head
  * @count: line_number
  * Return: no return
