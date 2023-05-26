@@ -2,9 +2,9 @@
 /**
 * exe - executes the opcode
 * @stack: head linked list - stack
-* @counter: line_counter
+* @count: line_counter
 * @file: poiner to monty file
-* @content: line content
+* @buf: line content
 * Return: no return
 */
 int exe(char *buf, stack_t **stack, unsigned int count, FILE *file)
