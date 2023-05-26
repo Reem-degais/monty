@@ -27,15 +27,15 @@ int exe(char *buf, stack_t **stack, unsigned int count, FILE *file)
 		{	opins[i].f(stack, count);
 			return (0);
 		}
-		else
-		{
+		i++;
+	}
+	if (op && opins[i].opcode == NULL)
+	{
 			fprintf(stderr, "L%d: unknown instruction %s\n", count , op);
 			fclose(file);
 			free(buf);
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
-		}
-		
 	}
 	return (1);
 }
