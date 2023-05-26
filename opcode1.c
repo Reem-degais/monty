@@ -46,16 +46,16 @@ void push(stack_t **head, unsigned int count)
 */
 void pall(stack_t **head, unsigned int count)
 {
-	stack_t *h;
+	stack_t *tmp;
 	(void)count;
 
-	h = *head;
-	if (h == NULL)
+	tmp = *head;
+	if (tmp == NULL)
 		return;
-	while (h)
+	while (tmp)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
 }
 
