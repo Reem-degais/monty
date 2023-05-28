@@ -16,7 +16,7 @@ int exe(char *buf, stack_t **stack, unsigned int count, FILE *file)
 	{"rotr", rotr}, {"stack", _stack}, {"queue", queue}};
 	unsigned int i = 0;
 	char *op ;
-	op = malloc(sizeof(stack_t));
+	op = malloc(2 * sizeof(stack_t));
 	op = strtok(buf, " \n\t");
 	if (op && op[0] == '#')
 		return (0);
