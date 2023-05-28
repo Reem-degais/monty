@@ -90,12 +90,12 @@ void rotl(stack_t **head, unsigned int count)
 	stack_t *tmp = *head, *a;
 	(void) count;
 
-	a = (*head)->next;
-	a->prev = NULL;
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		return;
 	}
+	a = (*head)->next;
+	a->prev = NULL;
 	while (tmp->next != NULL)
 	{
 		tmp = tmp->next;
