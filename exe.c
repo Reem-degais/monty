@@ -13,17 +13,15 @@ int exe(char *buf, stack_t **stack, unsigned int count, FILE *file)
 		{"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add},
 	{"nop", nop}, {"sub", sub}, {"div", _div}, {"mod", mod},
 	{"mul", mul}, {"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl},
-	{"rotr", rotr}, {"stack", _stack}, {"queue", queue}};
+	{"rotr", rotr}, {"stack", _stack}, {"queue", queue}, {NULL, NULL}};
 	unsigned int i = 0;
-	char *op ;
-	op = malloc(2 * sizeof(stack_t));
+	char *op;
+
 	op = strtok(buf, " \n\t");
 	if (op && op[0] == '#')
 		return (0);
 
 	h.arg = strtok(NULL, " \n\t");
-	
-
 	while (opins[i].opcode && op)
 	{
 		if (strcmp(op, opins[i].opcode) == 0)
@@ -34,11 +32,11 @@ int exe(char *buf, stack_t **stack, unsigned int count, FILE *file)
 	}
 	if (op && opins[i].opcode == NULL)
 	{
-			fprintf(stderr, "L%d: unknown instruction %s\n", count , op);
-			fclose(file);
-			free(buf);
-			free_stack(*stack);
-			exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: unknown instruction %s\n", count, op);
+		fclose(file);
+		free(buf);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
 	}
 	return (1);
 }

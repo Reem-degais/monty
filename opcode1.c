@@ -9,7 +9,6 @@ void push(stack_t **head, unsigned int count)
 {
 	int n, i = 0, flag = 0;
 
-	
 	if (h.arg)
 	{
 		if (h.arg[0] == '-')
